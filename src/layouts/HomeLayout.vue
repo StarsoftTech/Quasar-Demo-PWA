@@ -3,9 +3,8 @@
     <q-header 
       class="bg-dark" 
       elevated 
-      style="max-width: 380px"
     >
-      <q-toolbar>
+      <q-toolbar class="text-center flex flex-center">
         <badge 
         v-for="badge in badges"
           :key="badge.color"
@@ -15,6 +14,11 @@
       />
       </q-toolbar>
     </q-header>
+    <q-footer class="bg-dark row justify-end">
+      <q-btn round outline color="green" class="q-ma-sm">
+        <q-icon name="g_translate" color="green" @click="showReview" />
+      </q-btn>
+    </q-footer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -56,6 +60,11 @@ export default {
           value: '16'
         }
       ]
+    }
+  },
+  methods: {
+    showReview() {
+      this.$router.push('/review/');
     }
   }
 }

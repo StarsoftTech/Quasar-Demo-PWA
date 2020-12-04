@@ -4,8 +4,13 @@ const routes = [
     path: '/review',
     component: () => import('layouts/ReviewLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Review.vue') }
-
+      { path: '',
+        component: () => import('pages/Review.vue')
+      },
+      {
+        path: 'flip',
+        component: () => import('pages/Flip.vue')
+      }
     ]
   },
   {

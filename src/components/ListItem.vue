@@ -6,10 +6,8 @@
       @click="changeSide"
     >
       <q-item-section>
-        <q-item-label>
-          <span class="text-h6">
-            {{state ? caption[0] : caption[1]}}
-          </span>
+        <q-item-label class="text-h6 text-center">
+          {{state ? caption[0] : caption[1]}}
         </q-item-label>
       </q-item-section>
       <q-item-section side top>
@@ -36,6 +34,10 @@ export default {
     caption: {
       type: Array,
       required: true
+    },
+    clickable: {
+      type: String,
+      default: () => 'true'
     }
   },
   data() {
@@ -45,7 +47,7 @@ export default {
   },
   methods: {
     changeSide() {
-      this.state = !this.state;
+      if(this.clickable != '') this.state = !this.state;
     }
   } 
 }
