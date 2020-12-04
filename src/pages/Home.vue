@@ -4,8 +4,8 @@
       class="rounded-borders text-white q-ma-sm"
     >
       <list-item
-        v-for="item in items"
-          :key="item.caption[0]"
+        v-for="(item,index) in items"
+          :key="index"
           :caption="item.caption"
       />
     </q-list>
@@ -50,6 +50,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-</style>

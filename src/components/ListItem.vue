@@ -1,7 +1,8 @@
 <template>
   <fragment>
+    <transition name="flip" mode="out-in">
     <q-item 
-      :key="caption[0]" 
+      :key="key" 
       clickable 
       @click="changeSide"
     >
@@ -17,6 +18,7 @@
         />          
       </q-item-section>
     </q-item>
+    </transition>
     <q-separator 
       class="thick" 
       color="green-3" 
@@ -42,19 +44,18 @@ export default {
   },
   data() {
     return {
-      state: true
+      state: true,
+      key: 0
     }
   },
   methods: {
     changeSide() {
-      if(this.clickable != '') this.state = !this.state;
+      if(this.clickable != '') {
+        this.state = !this.state;
+        this.key += 1;
+      }
     }
   } 
 }
 </script>
 
-<style scoped>
-.thick {
-  height: 3px;
-}
-</style>

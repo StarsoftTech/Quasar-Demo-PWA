@@ -83,7 +83,14 @@ export default {
           label: 'Flip',
           color: 'purple'
         }
-      ]
+      ],
+      tabData: [
+        {
+          name: 'flip',
+          label: 'Flip',
+          color: 'purple'
+        }
+      ],
     }
   },
   methods: {
@@ -91,10 +98,10 @@ export default {
       this.$router.back();
     }
   },
-  computed: {
-    tabData() {
-      if(this.$router.currentRoute.path == '/review/') return this.flip;
-      else if(this.$router.currentRoute.path == '/review/flip/') return this.tabs;
+  watch: {
+    '$route.path': function () {
+      if(this.$route.path == '/review/') this.tabData = this.flip;
+      else if(this.$route.path == '/review/flip/') this.tabData = this.tabs;
     }
   }
 }

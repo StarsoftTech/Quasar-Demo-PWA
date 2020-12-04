@@ -1,27 +1,24 @@
 <template>
-  <fragment>
-    <q-page class="flex flex-center bg-dark">
-      <q-list 
-        class="rounded-borders text-white q-pa-sm full-width"
-      >
-        <list-item
-          v-for="item in items"
-            :key="item.caption[0]"
-            :caption="item.caption"
-          clickable=""
-        />
-      </q-list>
-    </q-page>    
-  </fragment>
+  <q-page class="flex flex-center bg-dark">
+    <q-list 
+      class="rounded-borders text-white q-pa-sm full-width"
+    >
+      <list-item
+        v-for="item in items"
+          :key="item.caption[0]"
+          :caption="item.caption"
+        clickable=""
+      />
+    </q-list>
+  </q-page>    
 </template>
 
 <script>
-import { Fragment } from 'vue-fragment';
 import ListItem from '../components/ListItem';
 
 export default {
   name: 'Review',
-  components: { Fragment, ListItem },
+  components: { ListItem },
   data() {
     return {
       items: [
